@@ -18,7 +18,7 @@ pipeline {
         bat 'tar --exclude=node_modules --exclude=.git --exclude=app.tar.gz -czf app.tar.gz .'
       }
     }
-   stage('Deploy') {
+   stage('Deploy File') {
   steps {
     withCredentials([sshUserPrivateKey(credentialsId: 'ec2-app-key', keyFileVariable: 'KEY')]) {
       bat '''
