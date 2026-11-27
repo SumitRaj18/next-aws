@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    EC2_HOST = 'ec2-user@<ec2-public-ip>'
+    EC2_HOST = 'ec2-user@ec2-3-110-221-238.ap-south-1.compute.amazonaws.com'
     APP_DIR  = '/home/ec2-user/myapp'
   }
 
