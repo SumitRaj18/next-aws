@@ -20,7 +20,7 @@ pipeline {
     }
    stage('Deploy File') {
   steps {
-    withCredentials([sshUserPrivateKey(credentialsId: 'ec2-app-key', keyFileVariable: 'KEY')]) {
+    withCredentials([sshUserPrivateKey(credentialsId: 'ec2-key', keyFileVariable: 'KEY')]) {
       bat '''
         icacls "%KEY%" /inheritance:r /grant:r "%USERNAME%:R"
         scp -i "%KEY%" -o StrictHostKeyChecking=no app.tar.gz %EC2_HOST%:/tmp/app.tar.gz || exit /b 1
